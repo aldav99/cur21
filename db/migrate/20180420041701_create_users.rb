@@ -4,7 +4,6 @@ class CreateUsers < ActiveRecord::Migration
       t.string :name
       t.boolean :pass
       t.integer :try
-      t.references :test, index: true, foreign_key: true
 
       t.timestamps null: false
     end
