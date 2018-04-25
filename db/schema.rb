@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180422051401) do
+ActiveRecord::Schema.define(version: 20180424024822) do
 
   create_table "answers", force: :cascade do |t|
     t.boolean  "correct",    default: false
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20180422051401) do
     t.integer  "category_id"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.integer  "user_id"
   end
 
   add_index "tests", ["category_id"], name: "index_tests_on_category_id"

@@ -1,3 +1,7 @@
 class User < ActiveRecord::Base
-  belongs_to :test
+  has_many :tests
+
+  def find_tests_level(level)
+    Test.where("user_id = ? AND level = ?", self.id, level).pluck(:title).join(",")
+  end
 end
