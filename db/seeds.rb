@@ -5,26 +5,41 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-Category.create(id: 1, title: 'Books')
-Category.create(id: 2,title: 'World')
-Category.create(id: 3,title: 'Animals')
+categories = Category.create!([
+  { title: 'Books' },
+  { title: 'World' },
+  { title: 'Animals' }
+])
 
-Test.create(id: 1, title: 'First', level: 1, category_id: 1, user_id: 1)
-Test.create(id: 2,title: 'Second', level: 2, category_id: 2, user_id: 3)
-Test.create(id: 3,title: 'Third', level: 3, category_id: 3, user_id: 2)
-Test.create(id: 4,title: 'Fourth', level: 1, category_id: 1, user_id: 1)
+users = User.create!([
+  { name: 'Ivanov' },
+  { name: 'Petrov' },
+  { name: 'Sidorov' }
+])
 
-Answer.create(id: 1, correct: false)
-Answer.create(id: 2, correct: true)
+tests = Test.create!([
+  { title: 'First', level: 1, category_id: categories[0].id },
+  { title: 'Second', level: 2, category_id: categories[1].id },
+  { title: 'Third', level: 3, category_id: categories[2].id },
+  { title: 'Fourth', level: 1, category_id: categories[0].id }
+])
 
-Question.create(id: 1, body: '1?', test_id: 1, answer_id: 1)
-Question.create(id: 2, body: '2?', test_id: 2, answer_id: 2)
-Question.create(id: 3, body: '3?', test_id: 3, answer_id: 1)
-Question.create(id: 4, body: '4?', test_id: 4, answer_id: 2)
-Question.create(id: 5, body: '5?', test_id: 4, answer_id: 1)
+UserTest.create!([
+  { user_id: users[0].id, test_id: tests[0].id },
+  { user_id: users[1].id, test_id: tests[2].id },
+  { user_id: users[2].id, test_id: tests[1].id },
+  { user_id: users[0].id, test_id: tests[3].id }
+])
 
-User.create(id: 1, name: 'Ivanov')
-User.create(id: 2, name: 'Petrov')
-User.create(id: 3, name: 'Sidorov')
+answers = Answer.create!([
+  { correct: false },
+  { correct: true }
+])
 
-
+Question.create!([
+  { body: '1?', test_id: tests[0].id, answer_id: answers[0].id },
+  { body: '2?', test_id: tests[1].id, answer_id: answers[1].id },
+  { body: '3?', test_id: tests[2].id, answer_id: answers[0].id },
+  { body: '4?', test_id: tests[3].id, answer_id: answers[1].id },
+  { body: '5?', test_id: tests[3].id, answer_id: answers[0].id }
+])

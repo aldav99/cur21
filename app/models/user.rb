@@ -1,7 +1,9 @@
 class User < ActiveRecord::Base
-  has_many :tests
+  
+  has_many :user_tests
+  has_many :tests, through: :user_tests
 
-  def find_tests_level(level)
-    Test.where("user_id = ? AND level = ?", self.id, level).pluck(:title).join(",")
+  def list_tests_level(level)
+    tests.where("level = ?", level).order(title: :desc).pluck(:title).join(",")
   end
 end
