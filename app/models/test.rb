@@ -4,6 +4,6 @@ class Test < ActiveRecord::Base
   has_many :users, through: :user_tests
 
   def self.tests_by_category(category)
-    Test.joins("INNER JOIN categories ON categories.id = tests.category_id").where(categories: { title: category}).order(title: :desc).pluck(:title)
+    joins("INNER JOIN categories ON categories.id = tests.category_id").where(categories: { title: category}).order(title: :desc).pluck(:title)
   end
 end

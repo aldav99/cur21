@@ -1,8 +1,9 @@
 class CreateUserTests < ActiveRecord::Migration
   def change
     create_table :user_tests do |t|
-      t.belongs_to :user, index: true
-      t.belongs_to :test, index: true
+      t.references :user, foreign_key: true
+      t.references :test, foreign_key: true
+
       t.timestamps null: false
     end
   end
