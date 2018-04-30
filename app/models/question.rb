@@ -1,3 +1,4 @@
 class Question < ActiveRecord::Base
-  belongs_to :test
+  has_many :answers
+  has_and_belongs_to_many :tests
 end

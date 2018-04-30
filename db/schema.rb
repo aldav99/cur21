@@ -11,19 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180429065713) do
+ActiveRecord::Schema.define(version: 20180430150053) do
 
   create_table "answers", force: :cascade do |t|
-    t.boolean  "correct",    default: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-  end
-
-  create_table "authors", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "test_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "correct"
+    t.integer  "question_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "categories", force: :cascade do |t|
@@ -32,21 +26,24 @@ ActiveRecord::Schema.define(version: 20180429065713) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "questions", force: :cascade do |t|
-    t.text     "body",       null: false
+  create_table "question_tests", force: :cascade do |t|
+    t.integer  "question_id"
     t.integer  "test_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "answer_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  add_index "questions", ["answer_id"], name: "index_questions_on_answer_id"
-  add_index "questions", ["test_id"], name: "index_questions_on_test_id"
+  create_table "questions", force: :cascade do |t|
+    t.text     "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "tests", force: :cascade do |t|
     t.string   "title"
     t.integer  "level"
     t.integer  "category_id"
+    t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
