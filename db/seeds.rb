@@ -18,10 +18,10 @@ users = User.create!([
 ])
 
 tests = Test.create!([
-  { title: 'First', level: 1, category_id: categories[0].id },
-  { title: 'Second', level: 2, category_id: categories[1].id },
-  { title: 'Third', level: 3, category_id: categories[2].id },
-  { title: 'Fourth', level: 1, category_id: categories[0].id }
+  { title: 'First', level: 1, category_id: categories[0].id, author_id: users[0].id},
+  { title: 'Second', level: 2, category_id: categories[1].id, author_id: users[0].id },
+  { title: 'Third', level: 3, category_id: categories[2].id, author_id: users[0].id },
+  { title: 'Fourth', level: 1, category_id: categories[0].id, author_id: users[1].id }
 ])
 
 UserTest.create!([
@@ -31,15 +31,15 @@ UserTest.create!([
   { user_id: users[0].id, test_id: tests[3].id }
 ])
 
-answers = Answer.create!([
-  { correct: false },
-  { correct: true }
+questions = Question.create!([
+  { body: '1?', test_id: tests[0].id },
+  { body: '2?', test_id: tests[1].id },
+  { body: '3?', test_id: tests[2].id },
+  { body: '4?', test_id: tests[3].id },
+  { body: '5?', test_id: tests[3].id }
 ])
 
-Question.create!([
-  { body: '1?', test_id: tests[0].id, answer_id: answers[0].id },
-  { body: '2?', test_id: tests[1].id, answer_id: answers[1].id },
-  { body: '3?', test_id: tests[2].id, answer_id: answers[0].id },
-  { body: '4?', test_id: tests[3].id, answer_id: answers[1].id },
-  { body: '5?', test_id: tests[3].id, answer_id: answers[0].id }
+Answer.create!([
+  { correct: false, question_id: questions[0].id },
+  { correct: true, question_id: questions[1].id}
 ])

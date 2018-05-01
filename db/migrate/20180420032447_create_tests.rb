@@ -4,7 +4,7 @@ class CreateTests < ActiveRecord::Migration
       t.string :title
       t.integer :level
       t.references :category, foreign_key: true
-      t.references :user, foreign_key: true
+      t.references :author
       t.timestamps null: false
     end
   end
