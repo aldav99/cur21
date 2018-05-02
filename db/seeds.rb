@@ -12,23 +12,25 @@ categories = Category.create!([
 ])
 
 users = User.create!([
-  { name: 'Ivanov' },
-  { name: 'Petrov' },
-  { name: 'Sidorov' }
+  { name: 'Ivanov', email: 'a@yandex.ru' },
+  { name: 'Petrov', email: 'b@yandex.ru' },
+  { name: 'Sidorov', email: 'c@yandex.ru' }
 ])
 
 tests = Test.create!([
   { title: 'First', level: 1, category_id: categories[0].id, author_id: users[0].id},
   { title: 'Second', level: 2, category_id: categories[1].id, author_id: users[0].id },
   { title: 'Third', level: 3, category_id: categories[2].id, author_id: users[0].id },
-  { title: 'Fourth', level: 1, category_id: categories[0].id, author_id: users[1].id }
+  { title: 'Fourth', level: 1, category_id: categories[0].id, author_id: users[1].id },
+  { title: 'Fifth', level: 5, category_id: categories[0].id, author_id: users[1].id }
 ])
 
 UserTest.create!([
   { user_id: users[0].id, test_id: tests[0].id },
   { user_id: users[1].id, test_id: tests[2].id },
   { user_id: users[2].id, test_id: tests[1].id },
-  { user_id: users[0].id, test_id: tests[3].id }
+  { user_id: users[0].id, test_id: tests[3].id },
+  { user_id: users[0].id, test_id: tests[4].id }
 ])
 
 questions = Question.create!([
@@ -40,6 +42,13 @@ questions = Question.create!([
 ])
 
 Answer.create!([
-  { correct: false, question_id: questions[0].id },
-  { correct: true, question_id: questions[1].id}
+  { correct: false, question_id: questions[0].id, body: 'invalid1' },
+  { correct: false, question_id: questions[0].id, body: 'invalid2' },
+  { correct: false, question_id: questions[0].id, body: 'invalid3' },
+  { correct: true, question_id: questions[0].id, body: 'valid1' },
+  { correct: true, question_id: questions[1].id, body: 'valid1'},
+  { correct: false, question_id: questions[1].id, body: 'invalid1'},
+  { correct: true, question_id: questions[2].id, body: 'valid2'},
+  { correct: true, question_id: questions[3].id, body: 'valid3'},
+  { correct: true, question_id: questions[4].id, body: 'valid4'}
 ])
