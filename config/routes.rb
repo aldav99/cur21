@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+
+  root to: 'tests#index'
+
+  resources :tests
+
+  resources :tests do
+    resources :questions, shallow: true
+  end
+
+  get '/tests/:categry/:title', to: 'tests#search'#, level: 2
+  post '/tests/:test_id', to: 'questions#create'
+
+  match 'questions/delete/:id', to: 'questions#delete', via: [:get]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -53,4 +67,8 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  
+  #resources :tests do
+  #  resources :questions, shallow: true
+  #end
 end

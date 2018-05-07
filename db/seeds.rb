@@ -38,7 +38,8 @@ questions = Question.create!([
   { body: '2?', test_id: tests[1].id },
   { body: '3?', test_id: tests[2].id },
   { body: '4?', test_id: tests[3].id },
-  { body: '5?', test_id: tests[3].id }
+  { body: '5?', test_id: tests[3].id },
+  { body: '6?', test_id: tests[0].id }
 ])
 
 Answer.create!([
