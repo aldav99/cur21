@@ -1,8 +1,7 @@
 <h2>Список тестов: </h2>
 
-
+<ul>
 <% @tests.each do |test| %>
-  <ul>
    <li><%= test.id %>:<%= test.title %></li>
-  </ul>
 <% end %>
+</ul>
