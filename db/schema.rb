@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20180503021507) do
     t.integer  "try"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "email"
   end
 
 end

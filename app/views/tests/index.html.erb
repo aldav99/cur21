@@ -1,7 +1,17 @@
 <h2>Список тестов: </h2>
 
-<ul>
-<% @tests.each do |test| %>
-   <li><%= test.id %>:<%= test.title %></li>
-<% end %>
-</ul>
+<p>
+  <%= link_to 'New test', new_test_path %>
+</p>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Level</th>
+    <th>Всего вопросов</th>
+    <th colspan="3">Actions</th>
+  </tr>
+
+  <%= render @tests %>
+</table>
+
