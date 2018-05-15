@@ -1,25 +1,15 @@
 class QuestionsController < ApplicationController
 
-  before_action :find_test, only: %i[new, create]
-  before_action :find_question, only: %i[show]
+  before_action :find_test, only: %i[new create]
+  before_action :find_question, only: %i[show edit update destroy]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
-  def index
-    @test = find_test
-    result = @test.questions.pluck(:id, :body)
-    render plain: result.join("\n")
-  end
-
   def show
-    @question = find_question
     @answers = @question.answers
   end
 
   def new
-    # без следующей строки появляется 
-    # Question was not found
-    @test = find_test
     @question = @test.questions.build
   end
 
@@ -29,20 +19,17 @@ class QuestionsController < ApplicationController
   end
 
   def edit
-    @question = find_question
-    @test = Test.find(@question.test_id)
+    @test = @question.test
   end
 
   def update
-    @question = find_question
     @question.update(question_params)
     redirect_to @question
   end
 
   def destroy
-    question = find_question
-    test = Test.find(question.test_id)
-    question.destroy
+    test = Test.find(@question.test_id)
+    @question.destroy
     redirect_to test
   end
 
@@ -53,7 +40,7 @@ class QuestionsController < ApplicationController
   end
 
   def find_question
-    Question.find(params[:id])
+    @question = Question.find(params[:id])
   end
 
   def question_params

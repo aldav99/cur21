@@ -1,9 +1,6 @@
 <h1>Edit <%= question_header %> Question</h1>
 
+<%= render "form", resource: @question %>
 
-<%= form_for @question do |f| %>
-  <%= f.text_field :body %><br>
-  <%= f.submit "Create" %>
-<% end %>
 
-<%= link_to 'Back', test_path %>
+<%= link_to 'Back', test_path(@question.test) %>
