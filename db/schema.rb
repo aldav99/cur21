@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180503021507) do
+ActiveRecord::Schema.define(version: 20180518042040) do
 
   create_table "answers", force: :cascade do |t|
     t.boolean  "correct"
@@ -34,6 +34,19 @@ ActiveRecord::Schema.define(version: 20180503021507) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "test_passages", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "test_id"
+    t.integer  "current_question_id"
+    t.integer  "correct_questions",   default: 0
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+  end
+
+  add_index "test_passages", ["current_question_id"], name: "index_test_passages_on_current_question_id"
+  add_index "test_passages", ["test_id"], name: "index_test_passages_on_test_id"
+  add_index "test_passages", ["user_id"], name: "index_test_passages_on_user_id"
+
   create_table "tests", force: :cascade do |t|
     t.string   "title"
     t.integer  "level"
@@ -44,13 +57,6 @@ ActiveRecord::Schema.define(version: 20180503021507) do
   end
 
   add_index "tests", ["title", "level"], name: "index_tests_on_title_and_level", unique: true
-
-  create_table "user_tests", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "test_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

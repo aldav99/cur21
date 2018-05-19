@@ -1,8 +1,9 @@
 class Test < ActiveRecord::Base
   belongs_to :category
   belongs_to :author, class_name: "User"
-  has_many :user_tests
-  has_many :users, through: :user_tests
+  
+  has_many :test_passages
+  has_many :users, through: :test_passages
   has_many :questions
   
   scope :easy, -> { where(level: 0..1) }
