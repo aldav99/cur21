@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -41,11 +40,10 @@ ActiveRecord::Schema.define(version: 20180518042040) do
     t.integer  "correct_questions",   default: 0
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
+    t.index ["current_question_id"], name: "index_test_passages_on_current_question_id"
+    t.index ["test_id"], name: "index_test_passages_on_test_id"
+    t.index ["user_id"], name: "index_test_passages_on_user_id"
   end
-
-  add_index "test_passages", ["current_question_id"], name: "index_test_passages_on_current_question_id"
-  add_index "test_passages", ["test_id"], name: "index_test_passages_on_test_id"
-  add_index "test_passages", ["user_id"], name: "index_test_passages_on_user_id"
 
   create_table "tests", force: :cascade do |t|
     t.string   "title"
@@ -54,9 +52,8 @@ ActiveRecord::Schema.define(version: 20180518042040) do
     t.integer  "author_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.index ["title", "level"], name: "index_tests_on_title_and_level", unique: true
   end
-
-  add_index "tests", ["title", "level"], name: "index_tests_on_title_and_level", unique: true
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

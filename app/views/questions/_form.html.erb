@@ -1,6 +1,6 @@
 <H2><%= question_header(@question) %></H2>
 
-<%= form_for resource do |f| %>
+<%= form_with model: resource do |f| %>
   <%= f.text_field :body %><br>
   <%= f.submit "Create" %>
 <% end %>

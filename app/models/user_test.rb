@@ -1,4 +1,4 @@
-class UserTest < ActiveRecord::Base
+class UserTest < ApplicationRecord
   belongs_to :user
   belongs_to :test
 end

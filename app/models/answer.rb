@@ -1,7 +1,7 @@
-class Answer < ActiveRecord::Base
+class Answer < ApplicationRecord
   belongs_to :question
   
-  scope :vaild, -> { where(correct: true) }
+  scope :correct, -> { where(correct: true) }
   
   validates :body, presence: true
 

@@ -16,6 +16,10 @@ class AnswersController < ApplicationController
 
   def create
     @answer = Answer.new(answer_params)
+    # Без следующей строки на
+    # <%= @answer.question.body %> ругается
+    # undefined method `body' for nil:NilClass
+    @answer.question_id = params["question_id"]
 
     if @answer.save
       redirect_to @answer, notice: 'Answer was successfully created.'
@@ -41,7 +45,7 @@ class AnswersController < ApplicationController
   private
 
     def find_question
-      @question = Question.find(params[:question_id])
+      @question = Question.find(params["question_id"])
     end
 
     def set_answer
