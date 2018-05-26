@@ -10,58 +10,59 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180518042040) do
+ActiveRecord::Schema.define(version: 2018_05_26_055545) do
 
   create_table "answers", force: :cascade do |t|
-    t.boolean  "correct"
-    t.integer  "question_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.text     "body"
+    t.boolean "correct"
+    t.integer "question_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "body"
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string   "title",      null: false
+    t.string "title", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "questions", force: :cascade do |t|
-    t.text     "body"
-    t.integer  "test_id"
+    t.text "body"
+    t.integer "test_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "test_passages", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "test_id"
-    t.integer  "current_question_id"
-    t.integer  "correct_questions",   default: 0
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.integer "user_id"
+    t.integer "test_id"
+    t.integer "current_question_id"
+    t.integer "correct_questions", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "current_number_question"
     t.index ["current_question_id"], name: "index_test_passages_on_current_question_id"
     t.index ["test_id"], name: "index_test_passages_on_test_id"
     t.index ["user_id"], name: "index_test_passages_on_user_id"
   end
 
   create_table "tests", force: :cascade do |t|
-    t.string   "title"
-    t.integer  "level"
-    t.integer  "category_id"
-    t.integer  "author_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string "title"
+    t.integer "level"
+    t.integer "category_id"
+    t.integer "author_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["title", "level"], name: "index_tests_on_title_and_level", unique: true
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "name"
-    t.boolean  "pass"
-    t.integer  "try"
+    t.string "name"
+    t.boolean "pass"
+    t.integer "try"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "email"
+    t.string "email"
   end
 
 end

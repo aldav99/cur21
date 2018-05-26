@@ -1,6 +1,6 @@
 class AnswersController < ApplicationController
   
-  before_action :set_answer, only: %i[show edit update destroy]
+  before_action :find_answer, only: %i[show edit update destroy]
   before_action :find_question, only: %i[new create]
 
   def show
@@ -15,11 +15,7 @@ class AnswersController < ApplicationController
 
 
   def create
-    @answer = Answer.new(answer_params)
-    # Без следующей строки на
-    # <%= @answer.question.body %> ругается
-    # undefined method `body' for nil:NilClass
-    @answer.question_id = params["question_id"]
+    @answer = @question.answers.build(answer_params)
 
     if @answer.save
       redirect_to @answer, notice: 'Answer was successfully created.'
@@ -39,16 +35,16 @@ class AnswersController < ApplicationController
 
   def destroy
     @answer.destroy
-    redirect_to @answer.question
+    redirect_to @answer.question, notice: 'Answer was successfully deleted.'
   end
 
   private
 
     def find_question
-      @question = Question.find(params["question_id"])
+      @question = Question.find(params[:question_id])
     end
 
-    def set_answer
+    def find_answer
       @answer = Answer.find(params[:id])
     end
 
