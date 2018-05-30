@@ -2,11 +2,17 @@
 <html>
 <head>
   <title>TestGuru</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
+  <% if logged_in? %>
+    <p class="nav user">Welcome, <b><%= current_user.email %> Guru</b></p>
+    <p class="nav user">Welcome, <b><%= current_user.name %> Guru</b></p>
+    <p class="nav user"><%= link_to "Log out", logout_path, method: :delete %></p>
+  <% end %>
 
 <%= yield %>
 
