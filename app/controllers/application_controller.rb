@@ -4,9 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   helper_method :current_user,
-                :logged_in?,
-                :flash_alert,
-                :log_out
+                :logged_in?
 
   private
 
@@ -14,8 +12,7 @@ class ApplicationController < ActionController::Base
     unless current_user
       redirect_to login_path, alert: 'Are you a Guru? Verify your Email and Password please'
     end
-  
-    cookies[:email] = current_user&.email
+
   end
 
 
@@ -31,8 +28,4 @@ class ApplicationController < ActionController::Base
     flash[:alert]
   end
 
-  def log_out
-    session.delete(:user_id)
-    @current_user = nil
-  end
 end

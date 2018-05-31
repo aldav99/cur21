@@ -8,13 +8,13 @@
 </head>
 
 <body>
-  <% if logged_in? %>
-    <p class="nav user">Welcome, <b><%= current_user.email %> Guru</b></p>
-    <p class="nav user">Welcome, <b><%= current_user.name %> Guru</b></p>
-    <p class="nav user"><%= link_to "Log out", logout_path, method: :delete %></p>
-  <% end %>
+
+<%= flash_alert %>
+
+<%= render "layouts/app" %>
 
 <%= yield %>
+
 
 <%= render "shared/footer" %>
 
