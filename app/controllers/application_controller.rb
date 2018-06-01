@@ -24,8 +24,4 @@ class ApplicationController < ActionController::Base
     current_user.present?
   end
 
-  def flash_alert
-    flash[:alert]
-  end
-
 end

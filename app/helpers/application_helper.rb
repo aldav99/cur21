@@ -11,10 +11,13 @@ module ApplicationHelper
 
   def flash_alert
     unless flash.empty?
-      flash.each do |key, message|
-        <p class="flash alert">message</p>
+      html = ""
+      flash.each do |key, msg|
+        html << (content_tag :p, msg, :class => 'flash alert')
       end
+      html.html_safe
     end
   end
+
 end
 
