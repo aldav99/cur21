@@ -7,9 +7,9 @@ class ApplicationController < ActionController::Base
 
  
 
-  def after_sign_in_path_for(resource)
+  def after_sign_in_path_for(user)
     flash[:notice] = "Привет, #{current_user.last_name} #{current_user.first_name}"
-    if current_user.type == "Admin"
+    if current_user.admin?
       admin_tests_path
     else
       root_path
@@ -19,8 +19,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    attributes = [:first_name, :last_name]
-    devise_parameter_sanitizer.permit(:sign_up, keys: attributes)
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name])
   end
 
 end

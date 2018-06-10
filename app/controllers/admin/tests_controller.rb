@@ -1,6 +1,6 @@
 class Admin::TestsController < Admin::BaseController
 
-  before_action :set_test, only: %i[show edit update destroy start]
+  before_action :find_test, only: %i[show edit update destroy start]
   
 
   def index
@@ -49,7 +49,7 @@ class Admin::TestsController < Admin::BaseController
 
   private
 
-  def set_test
+  def find_test
     @test = Test.find(params[:id])
   end
 
