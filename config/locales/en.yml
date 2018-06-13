@@ -1,33 +1,115 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
   hello: "Hello world"
+  title_html: <span class="nav-admin title"> TestGuru Admin Panel</span>
+  welcome_html: "Welcome"
+  new_test: "New test"
+  title: "Title"
+  level: "Level"
+  questions: "Questions"
+  question: "Question"
+  actions: "Actions" 
+  edit: "Edit"
+  show: "Show"
+  delete: "Delete"
+  new_question: "New question"
+  back: "Back"
+  logout: "Logout"
+  sure?: "Are you sure?"
+  start: "Start"
+  new_answer: "New answer"
+  answers: "Answers"
+  helper_edit: "Edit %{title} Question"
+  helper_create: "Create New %{title} Question"
+  correct: "Correct"
+  answer: "Answer"
+  new_answer: "New Answer"
+  editing_answer: "Editing Answer"
+  not_authorized: "You are not authorized to view this page."
+  hello_flash: "Hello, %{last_name} %{first_name}"
+  login: "Log in"
+  sign_up: "Sign up"
+  forgot_pass: "Forgot your password?"
+  receive_confirmation: "Didn't receive confirmation instructions?"
+  enter: "Enter"
+  first_name: "First name"
+  last_name:  "Last name"
+
+
+  helpers:
+    select:
+      prompt: "Please select category" 
+    submit:
+      test:
+        create: "Create Test"
+        update: "Update Test"
+      question:
+        create: "Create Question"
+        edit: "Edit Question"
+        update: "Update Question"
+      answer:
+        new: "New Answer"
+        edit: "Edit Answer"
+        create: "Create Answer"
+    label:
+      test:
+        title: "Title"
+        level: "Level"
+        category_id: "Category"
+      answer:
+        body: "Body"
+        correct: "Correct"
+
+
+  shared:
+    errors:
+      header:
+        one: "%{count} error detected"
+        other: "%{count} errors detected"
+
+  tests:
+    index:
+      header: "Tricky Tests"
+
+  devise:
+    sessions:
+      new:
+        header: "Enter the Guru Gates"
+    registrations:
+      new:
+        header: "Become a Guru"
+    confirmations:
+      new:
+        header: "Resend confirmation instructions"
+
+
+  test_passages:
+    result:
+      header: "The %{title} Test was Completed!"
+
+  admin:
+    tests:
+      create:
+        success: "Test was successfully created."
+      index:
+        header: "Tricky Tests"
+      new:
+        header: "Create New Test"
+      show:
+        header: "Test %{title}"
+      edit:
+        header: "Edit %{title} Test"
+    questions:
+      edit:
+        header: "Edit %{title} Question"
+    answers:
+      create:
+        success: 'Answer was successfully created.'
+      update:
+        success: 'Answer was successfully updated.'
+      destroy:
+        success: 'Answer was successfully deleted.'
+
+
+  tests_mailer:
+    completed_test:
+      subject: "You just completed the TestGuru test!"
