@@ -1,29 +1,23 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>TestGuru</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <%= csrf_meta_tags %>
-</head>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<body>
+    <title>TestGuru</title>
+    <%= csrf_meta_tags %>
 
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
 
-<% if user_signed_in? %>
-  <p class="nav user">
-    <%= t('welcome_html') %>, <b><%= current_user.email %></b> Guru |
-    <%= link_to t('logout'), destroy_user_session_path, method: :delete %>
-  </p>
-<% end %>
+  <body>
+    <%= render "shared/nav" %>
 
-<%= render "shared/flash" %>
-
-
-<%= yield %>
-
-
-<%= render "shared/footer" %>
-
-</body>
+    <div class="container">
+      <%= render "shared/flash" %>
+      <%= yield %>
+      <%= render "shared/footer" %>
+    </div>
+  </body>
 </html>

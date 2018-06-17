@@ -1,9 +1,9 @@
 <li>
   <%= answer.body %><br>
-  <%= link_to t('show'), admin_answer_path(answer) %>
-  <%= link_to t('edit'), edit_admin_answer_path(answer) %>
+  <%= link_to t('show'), admin_answer_path(answer), class: "badge badge-primary" %>
+  <%= link_to t('edit'), edit_admin_answer_path(answer), class: "badge badge-primary" %>
   <%= link_to t('delete'), 
               admin_answer_path(answer), 
               method: :delete, 
-              data: { confirm: t('sure?') } %>
+              data: { confirm: t('sure?') }, class: "badge badge-danger" %>
 </li>

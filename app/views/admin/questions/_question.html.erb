@@ -1,11 +1,11 @@
 <tr>
   <td><%= question.body %></td>
-  <td><%= link_to t('show'), admin_question_path(question) %></td>
-  <td><%= link_to t('edit'), edit_admin_question_path(question) %></td>
+  <td><%= link_to t('show'), admin_question_path(question), class: "badge badge-primary" %></td>
+  <td><%= link_to t('edit'), edit_admin_question_path(question), class: "badge badge-primary" %></td>
   <td>
     <%= link_to t('delete'), 
                 admin_question_path(question), 
                 method: :delete, 
-                data: { confirm: t('sure?') } %>
+                data: { confirm: t('sure?') }, class: "badge badge-danger" %>
   </td>
 </tr>

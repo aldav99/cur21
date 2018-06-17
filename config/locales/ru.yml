@@ -1,6 +1,6 @@
 ru:
   hello: "Привет мир"
-  title_html: <span class="nav-admin title"> TestGuru Панель Администратора</span>
+  title_html: "Панель Администратора"
   welcome_html: "Добро пожаловать"
   new_test: "Создать новый тест"
   title: "Название"
@@ -33,6 +33,10 @@ ru:
   enter: "Войти"
   first_name: "Имя"
   last_name: "Фамилия"
+  remember_me: "Запомнить меня"
+  create_answer: "Сохранить ответ"
+  create_test: "Создать Тест"
+  save_question: "Сохранить Вопрос"
 
   helpers:
     select:

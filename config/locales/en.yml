@@ -1,6 +1,6 @@
 en:
   hello: "Hello world"
-  title_html: <span class="nav-admin title"> TestGuru Admin Panel</span>
+  title_html: "Admin Panel"
   welcome_html: "Welcome"
   new_test: "New test"
   title: "Title"
@@ -33,6 +33,10 @@ en:
   enter: "Enter"
   first_name: "First name"
   last_name:  "Last name"
+  remember_me: "Remember me"
+  create_answer: "Save Answer"
+  create_test: "Create Test"
+  save_question: "Save Question"
 
 
   helpers:
