@@ -1,0 +1,120 @@
+ru:
+  hello: "Привет мир"
+  title_html: "Панель Администратора"
+  welcome_html: "Добро пожаловать"
+  new_test: "Создать новый тест"
+  title: "Название"
+  level: "Уровень"
+  questions: "Вопросы"
+  question: "Вопрос"
+  actions: "Действия"
+  edit: "Править"
+  show: "Показать"
+  delete: "Удалить"
+  new_question: "Создать новый вопрос"
+  back: "Назад"
+  logout: "Выход"
+  sure?: "Вы уверены?"
+  start: "Начать"
+  new_answer: "Создать ответ"
+  answers: "Ответы"
+  helper_edit: "Править %{title} Вопрос"
+  helper_create: "Создать Новый %{title} Вопрос"
+  correct: "Правильный"
+  answer: "Ответ"
+  new_answer: "Создать ответ"
+  editing_answer: "Правка ответа"
+  not_authorized: "Вы не авторизованы для просмотра этой страницы."
+  hello_flash: "Привет, %{last_name} %{first_name}"
+  login: "Вход"
+  sign_up: "Регистрация"
+  forgot_pass: "Забыли пароль?"
+  receive_confirmation: "Не получили подтверждения?"
+  enter: "Войти"
+  first_name: "Имя"
+  last_name: "Фамилия"
+  remember_me: "Запомнить меня"
+  create_answer: "Сохранить ответ"
+  create_test: "Создать Тест"
+  save_question: "Сохранить Вопрос"
+
+  helpers:
+    select:
+      prompt: "Выберите категорию теста" 
+    submit:
+      test:
+        create: "Создать Тест"
+        update: "Обновить Тест"
+      question:
+        create: "Создать Вопрос"
+        edit: "Править Вопрос"
+        update: "Обновить Вопрос"
+      answer:
+        update: "Обновить ответ"
+        edit: "Править ответ"
+        create: "Создать ответ"
+    label:
+      test:
+        title: "Название"
+        level: "Уровень"
+        category_id: "Категория"
+      answer:
+        body: "Формулировка вопроса"
+        correct: "Истинность"
+
+
+      
+  shared:
+    errors:
+      header:
+        few: "Обнаружено %{count} ошибки"
+        many: "Обнаружено %{count} ошибок"
+        one: "Обнаружена %{count} ошибка"
+        other: "Обнаружено %{count} ошибки"
+
+  tests:
+    index:
+      header: "Доступные тесты"
+
+  devise:
+    sessions:
+      new:
+        header: "Стань Гуру"
+    registrations:
+      new:
+        header: "Будь Гуру"
+    confirmations:
+      new:
+        header: "Повторное подтверждение"
+
+  test_passages:
+    result:
+      header: "Тест %{title} успешно завершен!"
+
+  admin:
+    tests:
+      create:
+        success: "Тест успешно создан"
+      index:
+        header: "Доступные Тесты"
+      new:
+        header: "Создайте Новый Тест"
+      show:
+        header: "Тест %{title}"
+      edit:
+        header: "Править %{title} Тест"
+    questions:
+      edit:
+        header: "Править %{title} Вопрос"
+    answers:
+      create:
+        success: 'Ответ успешно создан.'
+      update:
+        success: 'Ответ успешно обновлен.'
+      destroy:
+        success: 'Ответ успешно удален.'
+
+
+  tests_mailer:
+    completed_test:
+      subject: "Вы успешно завершили тест на TestGuru!"

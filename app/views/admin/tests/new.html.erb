@@ -1,5 +1,13 @@
-<h1>Create New Test</h1>
+<div class="row justify-content-center">
+  <div class="col col-md-6">
+    <h1><%= t('.header') %></h1>
+    <div class="card border-primary text-center">
+      <div class="card-body">
 
-<%= render "form" %>
+        <%= render "form" %>
 
-<%= link_to 'Back', admin_tests_path %>
+        <%= link_to t('back'), admin_tests_path %>
+      </div>
+    </div>
+  </div>
+</div>

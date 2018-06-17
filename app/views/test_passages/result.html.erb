@@ -1,4 +1,4 @@
-<h1>The <%= @test_passage.test.title %> Test was Completed!</h1>
+<h1> <%= t('.header', title: @test_passage.test.title) %></h1>
 
 <p>
     <b><%= @test_passage.evaluate_result %><font color = <%= @test_passage.color %>><%= @test_passage.result.to_i %></font>% </b>

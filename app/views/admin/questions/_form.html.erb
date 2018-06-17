@@ -1,6 +1,25 @@
-<H2><%= question_header(@question) %></H2>
+<div class="row justify-content-center mt-3">
+  <H2><%= question_header(@question) %></H2>
+</div>
 
-<%= form_with model: resource do |f| %>
-  <%= f.text_field :body %><br>
-  <%= f.submit "Create" %>
-<% end %>
+<div class="row justify-content-center mt-3">
+  <div class="col col-md-4">
+    <div class="card border-primary text-center">
+      <div class="card-body">
+        <div class="form-group">
+          <%= form_with model: resource do |f| %>
+            <%= f.text_field :body %><br>
+            <div class="mt-3"><%= f.submit t('save_question'), class: 'btn btn-primary' %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
