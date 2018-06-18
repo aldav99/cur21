@@ -12,7 +12,7 @@ module ApplicationHelper
   def flash_alert
       html = ""
       flash.each do |key, msg|
-        html << (content_tag :div, msg, :class => ['alert alert-primary', 'row justify-content-center'], :role => 'alert')
+        html << (content_tag :div, msg, :class => ['alert alert-danger', 'row justify-content-center'], :role => 'alert')
       end
       html.html_safe
   end
