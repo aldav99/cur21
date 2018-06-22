@@ -37,6 +37,9 @@ ru:
   create_answer: "Сохранить ответ"
   create_test: "Создать Тест"
   save_question: "Сохранить Вопрос"
+  gists: "Ваши Gist"
+  user: "Пользователь"
+
 
   helpers:
     select:
@@ -90,6 +93,10 @@ ru:
   test_passages:
     result:
       header: "Тест %{title} успешно завершен!"
+    gist:
+      success: "Gist успешно сохранен!"
+      failure: "Во время сохранения gist произошла ошибка"
+      gist_description: "Вопрос о %{test} из ТестГуру"
 
   admin:
     tests:

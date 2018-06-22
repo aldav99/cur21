@@ -37,7 +37,19 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+#Auth
+
 gem 'devise', '~> 4.0'
+
+#NETWORKING
+
+gem 'faraday'
+
+#GitHub client
+
+gem 'octokit', '~> 4.0'
+
+gem 'dotenv-rails', :groups => [:development, :test]
 
 #LOCALIZATION
 

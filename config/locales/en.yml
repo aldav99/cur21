@@ -37,6 +37,9 @@ en:
   create_answer: "Save Answer"
   create_test: "Create Test"
   save_question: "Save Question"
+  gists: "Yours Gists"
+  user: "User"
+
 
 
   helpers:
@@ -89,6 +92,10 @@ en:
   test_passages:
     result:
       header: "The %{title} Test was Completed!"
+    gist:
+      success: "Gist was successfully created!"
+      failure: "An error occured while saving gist"
+      gist_description: "A question about %{test} from TestGuru"
 
   admin:
     tests:

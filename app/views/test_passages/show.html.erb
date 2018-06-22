@@ -1,8 +1,8 @@
 <h1>Passing the <%= @test_passage.test.title %> Test</h1>
 
-<b>
-  <%= @test_passage.current_question.body %>
-</b>
+<p>
+  <b><%= @test_passage.current_question.body %></b>
+</p>
 
 <p>
   Question <%=@test_passage.current_number_question %> from <%= @test_passage.test.questions.count %>
@@ -16,5 +16,6 @@
     </p>
   <% end %>
 
+  <p><%= link_to 'Gist Question', gist_test_passage_path(@test_passage), method: :post %></p>
   <p><%= form.submit 'Next' %></p>
 <% end %>
