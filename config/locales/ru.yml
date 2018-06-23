@@ -39,6 +39,7 @@ ru:
   save_question: "Сохранить Вопрос"
   gists: "Ваши Gist"
   user: "Пользователь"
+  gist_description: "Вопрос о %{test} из ТестГуру"
 
 
   helpers:
@@ -96,7 +97,7 @@ ru:
     gist:
       success: "Gist успешно сохранен!"
       failure: "Во время сохранения gist произошла ошибка"
-      gist_description: "Вопрос о %{test} из ТестГуру"
+     
 
   admin:
     tests:

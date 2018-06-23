@@ -23,21 +23,14 @@ class TestPassagesController < ApplicationController
   end
 
   def gist
-    description = t('.gist_description', test: @test_passage.current_question.test.title)
 
-    result = GistQuestionService.new(@test_passage.current_question, description).call
+    result = GistQuestionService.new(@test_passage.current_question).call
     
-    flash_options = unless result.nil?
+    flash_options = unless result.failure?
 
-      @gists = Gist.new
+      current_user.gists.create(question_id: @test_passage.current_question.id, gist_url: result[:url])
 
-      @gists.question = @test_passage.current_question.body
-      @gists.gist_url = result[:url]
-      @gists.user = @test_passage.user.email
-
-      @gists.save
-
-      str = t('.success') + "   #{result[:html_url]}"
+      str = "#{t('.success')}  #{result[:html_url]}"
 
       { notice: str }
     else

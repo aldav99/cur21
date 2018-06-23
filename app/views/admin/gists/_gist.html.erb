@@ -1,10 +1,6 @@
 <tr>
-  <td><%= (content_tag :a, gist.question[0,25], :href => admin_question_path(gist.question)).html_safe %></td>
+  <td><%= (content_tag :a, truncate(gist.question.body, length: 25), :href => admin_question_path(gist.question)).html_safe %></td>
   <td><%= (content_tag :a, gist.gist_url, :href => gist.gist_url).html_safe %></td>
-  <td><%= gist.user %></td>
+  <td><%= (content_tag :a, gist.user.email, :href => "#", :title => "#{gist.user.first_name} #{gist.user.last_name}").html_safe %></td>
 </tr>
-
-
-
-
 

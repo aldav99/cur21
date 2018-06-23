@@ -39,6 +39,7 @@ en:
   save_question: "Save Question"
   gists: "Yours Gists"
   user: "User"
+  gist_description: "A question about %{test} from TestGuru"
 
 
 
@@ -95,7 +96,7 @@ en:
     gist:
       success: "Gist was successfully created!"
       failure: "An error occured while saving gist"
-      gist_description: "A question about %{test} from TestGuru"
+      
 
   admin:
     tests:
