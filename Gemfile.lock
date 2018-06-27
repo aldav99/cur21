@@ -124,6 +124,11 @@ GEM
     nio4r (2.3.1)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
+    octicons (7.3.0)
+      nokogiri (>= 1.6.3.1)
+    octicons_helper (7.3.0)
+      octicons (= 7.3.0)
+      rails
     octokit (4.9.0)
       sawyer (~> 0.8.0, >= 0.5.3)
     orm_adapter (0.5.0)
@@ -235,6 +240,7 @@ DEPENDENCIES
   jquery-rails
   letter_opener
   listen
+  octicons_helper
   octokit (~> 4.0)
   puma
   rails (~> 5.2)
