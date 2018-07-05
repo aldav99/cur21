@@ -8,7 +8,11 @@
   Question <%=@test_passage.current_number_question %> from <%= @test_passage.test.questions.count %>
 </p>
 
-<%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form| %>
+
+<%= render 'shared/progress', width: ((@test_passage.current_number_question - 1)*100/@test_passage.test.questions.count) %> 
+
+
+<%= form_with url: test_passage_path(@test_passage), local: true, method: :put, class: 'open-document' do |form| %>
   <%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false do |b| %>
     <p>
       <%= b.check_box id: "answer_ids_#{b.object.id}" %>
@@ -17,5 +21,8 @@
   <% end %>
 
   <p><%= link_to 'Gist Question', gist_test_passage_path(@test_passage), method: :post %></p>
-  <p><%= form.submit 'Next' %></p>
+  <p><%= form.submit 'Next',
+                    data: { current_number: @test_passage.current_number_question,
+                      total_count: @test_passage.test.questions.count },
+                    class: "progress-bar" %></p>
 <% end %>

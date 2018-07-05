@@ -105,6 +105,8 @@ ru:
         success: "Тест успешно создан"
       index:
         header: "Доступные Тесты"
+      form_inline:
+        submit: "ОК"
       new:
         header: "Создайте Новый Тест"
       show:

@@ -104,6 +104,8 @@ en:
         success: "Test was successfully created."
       index:
         header: "Tricky Tests"
+      form_inline:
+        submit: "OK"
       new:
         header: "Create New Test"
       show:
