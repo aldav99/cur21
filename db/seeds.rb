@@ -12,9 +12,9 @@ categories = Category.create!([
 ])
 
 users = User.create!([
-  { name: 'Ivanov', email: 'a@yandex.ru' },
-  { name: 'Petrov', email: 'b@yandex.ru' },
-  { name: 'Sidorov', email: 'c@yandex.ru' }
+  { name: 'Ivanov', email: 'ivan@yandex.ru', type: 'Admin', first_name: 'Ivan', last_name: 'Ivanov', password: '123456' },
+  { name: 'Petrov', email: 'petr@yandex.ru', first_name: 'Petr', last_name: 'Petrov', password: '123456' },
+  { name: 'Sidorov', email: 'sid@yandex.ru', first_name: 'Sidor', last_name: 'Sidorov', password: '123456' }
 ])
 
 tests = Test.create!([
@@ -25,13 +25,6 @@ tests = Test.create!([
   { title: 'Fifth', level: 5, category_id: categories[0].id, author_id: users[1].id }
 ])
 
-UserTest.create!([
-  { user_id: users[0].id, test_id: tests[0].id },
-  { user_id: users[1].id, test_id: tests[2].id },
-  { user_id: users[2].id, test_id: tests[1].id },
-  { user_id: users[0].id, test_id: tests[3].id },
-  { user_id: users[0].id, test_id: tests[4].id }
-])
 
 questions = Question.create!([
   { body: '1?', test_id: tests[0].id },
