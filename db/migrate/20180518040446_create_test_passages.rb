@@ -1,4 +1,4 @@
-class CreateTestPassages < ActiveRecord::Migration
+class CreateTestPassages < ActiveRecord::Migration[5.2]
   def change
     create_table :test_passages do |t|
       t.references :user, index: true, foreign_key: true
