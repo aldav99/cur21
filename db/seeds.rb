@@ -12,7 +12,7 @@ categories = Category.create!([
 ])
 
 users = User.create!([
-  { name: 'Ivanov', email: 'ivan@yandex.ru', type: 'Admin', first_name: 'Ivan', last_name: 'Ivanov', password: '123456' },
+  { name: 'Ivanov', email: 'ivan1@yandex.ru', type: 'Admin', first_name: 'Ivan', last_name: 'Ivanov', password: '123456' },
   { name: 'Petrov', email: 'petr@yandex.ru', first_name: 'Petr', last_name: 'Petrov', password: '123456' },
   { name: 'Sidorov', email: 'sid@yandex.ru', first_name: 'Sidor', last_name: 'Sidorov', password: '123456' }
 ])
