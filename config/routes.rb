@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   
   root 'tests#index'
 
+  resources :contacts, only: [:new, :create]
+
 
   devise_for :users, path: :gurus, path_names: { sign_in: :login, sign_out: :logout }
   

@@ -3,7 +3,7 @@
   
   <span class="navbar-text">
     <% if user_signed_in? %>
-      <%= t('welcome_html') %>, <b><%= current_user.email %></b> Guru |
+      <%= t('welcome_html') %>, <b><%= current_user.email %></b> Guru |<%= link_to t('contact_us'), new_contact_path %>|
       <%= link_to t('logout'), destroy_user_session_path, method: :delete %>
     <% else %>
       <%= link_to t('login'), new_session_path(resource_name) %> |
