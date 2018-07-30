@@ -14,9 +14,13 @@ class Test < ApplicationRecord
   validates :title, presence: true
   validates :level, numericality: { only_integer: true, greater_than: 0 }
   validates :title, uniqueness: { scope: :level, message: "Пара название - уровень д.б. уникальна" }
-  
 
   def self.tests_by_category(category)
     by_category(category).pluck(:title)
   end
+
+  def self.tests_by_level_id(level)
+    Test.where(level: level).pluck(:id)
+  end
+
 end

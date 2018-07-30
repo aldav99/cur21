@@ -1,0 +1,36 @@
+<div class="row justify-content-center mt-3">
+  <div class="col col-md-6">
+    <p>
+      <strong><%= t('title')%>:</strong>
+      <%= t('.header', title: @list_badge.title) %>
+    </p>
+
+    <p>
+      <strong><%= t('imgfile')%>:</strong>
+      <%= @list_badge.imgfile %>
+    </p>
+
+    <p>
+      <h3><%= t('rules')%></h3>
+    </p>
+
+    <p>
+      <%= content_tag(:strong, t('category') + ":") if @list_badge.category %>
+      <%= @list_badge.category.title if @list_badge.category %>
+    </p>
+
+    <p>
+      <%= content_tag(:strong, t('level') + ":") if @list_badge.level %>
+      <%= @list_badge.level if @list_badge.level %>
+    </p>
+
+    <p>
+      <%= content_tag(:strong, t('try') + ":") if @list_badge.try == 1 %>
+      <%= t('pass') if @list_badge.try == 1 %>
+    </p>
+
+
+    <%= link_to t('back'), admin_list_badges_path %>
+
+  </div>
+</div>

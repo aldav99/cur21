@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_19_025940) do
+ActiveRecord::Schema.define(version: 2018_07_29_101822) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,19 @@ ActiveRecord::Schema.define(version: 2018_07_19_025940) do
     t.datetime "updated_at", null: false
     t.text "body"
     t.index ["question_id"], name: "index_answers_on_question_id"
+  end
+
+  create_table "badges", force: :cascade do |t|
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "title"
+    t.string "imgfile"
+    t.bigint "category_id"
+    t.integer "level"
+    t.integer "try"
+    t.index ["category_id"], name: "index_badges_on_category_id"
+    t.index ["user_id"], name: "index_badges_on_user_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -40,6 +53,17 @@ ActiveRecord::Schema.define(version: 2018_07_19_025940) do
     t.index ["user_id"], name: "index_gists_on_user_id"
   end
 
+  create_table "list_badges", force: :cascade do |t|
+    t.string "title"
+    t.string "imgfile"
+    t.integer "level"
+    t.integer "try"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_list_badges_on_category_id"
+  end
+
   create_table "questions", force: :cascade do |t|
     t.text "body", null: false
     t.integer "test_id"
@@ -56,6 +80,7 @@ ActiveRecord::Schema.define(version: 2018_07_19_025940) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "current_number_question"
+    t.boolean "pass"
     t.index ["current_question_id"], name: "index_test_passages_on_current_question_id"
     t.index ["test_id"], name: "index_test_passages_on_test_id"
     t.index ["user_id"], name: "index_test_passages_on_user_id"
@@ -102,6 +127,9 @@ ActiveRecord::Schema.define(version: 2018_07_19_025940) do
     t.index ["type"], name: "index_users_on_type"
   end
 
+  add_foreign_key "badges", "categories"
+  add_foreign_key "badges", "users"
+  add_foreign_key "list_badges", "categories"
   add_foreign_key "test_passages", "tests"
   add_foreign_key "test_passages", "users"
 end

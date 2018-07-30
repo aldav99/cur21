@@ -8,9 +8,15 @@ Rails.application.routes.draw do
   devise_for :users, path: :gurus, path_names: { sign_in: :login, sign_out: :logout }
   
   resources :tests, only: :index do
-
     post :start, on: :member
   end
+
+  resources :badges, only: %i[index] do
+    collection do
+      get 'search'
+    end
+  end
+
 
   resources :test_passages, only: %i[show update] do
     member do
@@ -20,6 +26,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    resources :list_badges
     resources :gists, only: %i[index]
     resources :tests do
       patch :update_inline, on: :member

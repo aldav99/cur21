@@ -1,0 +1,20 @@
+<tr>
+  <td class="align-middle"><%= list_badge.title %></td>
+  <td class="align-middle"><%= list_badge.imgfile %></td>
+  <td class="align-middle"><%= list_badge.category.title if list_badge.category%></td>
+  <td class="align-middle"><%= list_badge.level if list_badge.level%></td>
+  <td class="align-middle"><%= list_badge.try if list_badge.try == 1%></td>
+  <td class="align-middle"><%= link_to t('show'), admin_list_badge_path(list_badge), class: "badge badge-primary" %></td>
+  <td class="align-middle">
+    <%= link_to t('edit'), 
+                  edit_admin_list_badge_path(list_badge),
+                  class: "badge badge-primary" %>
+  </td>
+
+  <td class="align-middle">
+    <%= link_to t('delete'), 
+                admin_list_badge_path(list_badge), 
+                method: :delete, 
+                data: { confirm: t('sure?') }, class: "badge badge-danger" %>
+  </td>
+</tr>

@@ -3,6 +3,7 @@ ru:
   title_html: "Панель Администратора"
   welcome_html: "Добро пожаловать"
   new_test: "Создать новый тест"
+  new_badge: "Создать бейдж"
   title: "Название"
   level: "Уровень"
   questions: "Вопросы"
@@ -36,11 +37,21 @@ ru:
   remember_me: "Запомнить меня"
   create_answer: "Сохранить ответ"
   create_test: "Создать Тест"
+  create_badge: "Создать Бейдж"
   save_question: "Сохранить Вопрос"
   gists: "Ваши Gist"
   user: "Пользователь"
   gist_description: "Вопрос о %{test} из ТестГуру"
   contact_us: "Свяжитесь с нами"
+  imgfile: "Файл изображения"
+  created_badges: "Созданные бейджи"
+  save_badge: "Сохранить бейдж"
+  all_badges: "Список бейджей"
+  yours_badges: "Ваши бейджи"
+  category: "Категория"
+  rules: "Правила"
+  try: "Первая попытка"
+  pass: "Успех"
 
 
   helpers:
@@ -80,6 +91,10 @@ ru:
   tests:
     index:
       header: "Доступные тесты"
+
+  badges:
+    index:
+      header: "Доступные бейджи"
 
   devise:
     sessions:
@@ -124,6 +139,17 @@ ru:
         success: 'Ответ успешно обновлен.'
       destroy:
         success: 'Ответ успешно удален.'
+    list_badges:
+      index:
+        header: "Список бейджей"
+      show:
+        header: "Бейдж %{title}"
+      create:
+        success: "Бейдж успешно создан"
+      new:
+        header: "Создайте Новый Бейдж"
+      edit:
+        header: "Править %{title} Бейдж"
 
 
   tests_mailer:

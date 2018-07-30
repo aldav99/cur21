@@ -1,0 +1,25 @@
+<div class="row justify-content-center mt-3">
+  <div class="col col-md-10">
+    <h3><%= t('.header') %></h3>
+
+    <%= render 'shared/errors', resource: @list_badge %>
+
+    <table class="table table-sm table-bordered">
+      <tr>
+        <th scope="col"><%=t('title')%></th>
+        <th scope="col"><%=t('imgfile')%></th>
+        <th scope="col"><%=t('category')%></th>
+        <th scope="col"><%=t('level')%></th>
+        <th scope="col"><%=t('try')%></th>
+        <th class="text-center" scope="col" colspan="4"><%=t('actions')%></th>
+      </tr>
+
+      
+      <%= render @list_badges %>
+    </table>
+    <%= link_to t('back'), admin_tests_path %>
+  </div>
+</div>
+
+
+

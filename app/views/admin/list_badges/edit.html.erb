@@ -1,0 +1,17 @@
+<div class="row justify-content-center">
+  <div class="col col-md-6 offset-md-2 text-center">
+    <h3><%= t('.header', title: @list_badge.title) %></h3>
+  </div>
+</div>
+
+<div class="row justify-content-center">
+  <div class="col col-md-6">
+    <div class="card border-primary text-center">
+      <div class="card-body">
+        <%= render "form" %>
+
+        <%= link_to t('back'), admin_list_badges_path %>
+      </div>
+    </div>
+  </div>
+</div>

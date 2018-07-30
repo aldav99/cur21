@@ -3,6 +3,7 @@ en:
   title_html: "Admin Panel"
   welcome_html: "Welcome"
   new_test: "New test"
+  new_badge: "New badge"
   title: "Title"
   level: "Level"
   questions: "Questions"
@@ -36,11 +37,21 @@ en:
   remember_me: "Remember me"
   create_answer: "Save Answer"
   create_test: "Create Test"
+  create_badge: "Create Badge"
   save_question: "Save Question"
   gists: "Yours Gists"
   user: "User"
   gist_description: "A question about %{test} from TestGuru"
   contact_us: "Contact us"
+  imgfile: "Image File"
+  created_badges: "Created badges"
+  save_badge: "Save badges"
+  all_badges: "All badges"
+  yours_badges: "Yours badges"
+  category: "Category"
+  rules: "Rules"
+  try: "First try"
+  pass: "Pass"
 
 
 
@@ -78,6 +89,10 @@ en:
   tests:
     index:
       header: "Tricky Tests"
+
+  badges:
+    index:
+      header: "All badges"
 
   devise:
     sessions:
@@ -123,6 +138,17 @@ en:
         success: 'Answer was successfully updated.'
       destroy:
         success: 'Answer was successfully deleted.'
+    list_badges:
+      index:
+        header: "List of Badges"
+      show:
+        header: "Badge %{title}"
+      create:
+        success: "Badge was successfully created."
+      new:
+        header: "Create New Badge"
+      edit:
+        header: "Edit %{title} Badge"
 
 
   tests_mailer:
