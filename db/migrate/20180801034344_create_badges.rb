@@ -3,7 +3,8 @@ class CreateBadges < ActiveRecord::Migration[5.2]
     create_table :badges do |t|
       t.string :title
       t.string :imgfile
-      t.references :user, foreign_key: true
+      t.string :rule_name
+      t.string :rule_value
 
       t.timestamps
     end

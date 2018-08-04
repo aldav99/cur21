@@ -16,6 +16,7 @@
       <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true %>
     </p>
 
+
     <div class="mt-3"><%= form.submit t('create_test'), class: 'btn btn-primary' %>
     </div>
   </div>

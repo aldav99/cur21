@@ -52,6 +52,9 @@ en:
   rules: "Rules"
   try: "First try"
   pass: "Pass"
+  timer: "Timer"
+  rule_name: "Rule's name"
+  rule_value: "Rule's value"
 
 
 
@@ -75,6 +78,7 @@ en:
         title: "Title"
         level: "Level"
         category_id: "Category"
+        timer: "Timer"
       answer:
         body: "Body"
         correct: "Correct"
@@ -138,7 +142,7 @@ en:
         success: 'Answer was successfully updated.'
       destroy:
         success: 'Answer was successfully deleted.'
-    list_badges:
+    badges:
       index:
         header: "List of Badges"
       show:

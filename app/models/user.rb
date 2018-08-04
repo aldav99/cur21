@@ -14,7 +14,8 @@ class User < ApplicationRecord
   has_many :tests, through: :test_passages
   has_many :own_tests, class_name: "Test", foreign_key: "author_id"
   has_many :gists
-  has_many :badges
+  has_many :user_badges
+  has_many :badges, through: :user_badges
 
   validates :email, format: { with: /\A(|(([A-Za-z0-9]+_+)|([A-Za-z0-9]+\-+)|([A-Za-z0-9]+\.+)|([A-Za-z0-9]+\++))*[A-Za-z0-9]+@((\w+\-+)|(\w+\.))*\w{1,63}\.[a-zA-Z]{2,6})\z/i, message: "Внимательнее с форматом email" }
   validates :email, uniqueness: { message: "email д.б. уникальным" }

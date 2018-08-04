@@ -1,0 +1,31 @@
+<div class="row justify-content-center mt-3">
+  <div class="col col-md-6">
+    <p>
+      <strong><%= t('title')%>:</strong>
+      <%= t('.header', title: @badge.title) %>
+    </p>
+
+    <p>
+      <strong><%= t('imgfile')%>:</strong>
+      <%= @badge.imgfile %>
+    </p>
+
+    <p>
+      <h3><%= t('rules')%></h3>
+    </p>
+
+    <p>
+      <strong><%= t('rule_name')%>:</strong>
+      <%= @badge.rule_name %>
+    </p>
+
+    <p>
+      <strong><%= t('rule_value')%>:</strong>
+      <%= @badge.rule_value %>
+    </p>
+
+
+    <%= link_to t('back'), admin_badges_path %>
+
+  </div>
+</div>

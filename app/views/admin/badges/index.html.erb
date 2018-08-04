@@ -2,20 +2,19 @@
   <div class="col col-md-10">
     <h3><%= t('.header') %></h3>
 
-    <%= render 'shared/errors', resource: @list_badge %>
+    <%= render 'shared/errors', resource: @badge %>
 
     <table class="table table-sm table-bordered">
       <tr>
         <th scope="col"><%=t('title')%></th>
         <th scope="col"><%=t('imgfile')%></th>
-        <th scope="col"><%=t('category')%></th>
-        <th scope="col"><%=t('level')%></th>
-        <th scope="col"><%=t('try')%></th>
+        <th scope="col"><%=t('rule_name')%></th>
+        <th scope="col"><%=t('rule_value')%></th>
         <th class="text-center" scope="col" colspan="4"><%=t('actions')%></th>
       </tr>
 
       
-      <%= render @list_badges %>
+      <%= render @badges %>
     </table>
     <%= link_to t('back'), admin_tests_path %>
   </div>

@@ -3,9 +3,11 @@
 one:
   title: MyString
   imgfile: MyString
-  user: one
+  rule_name: MyString
+  rule_value: MyString
 
 two:
   title: MyString
   imgfile: MyString
-  user: two
+  rule_name: MyString
+  rule_value: MyString
