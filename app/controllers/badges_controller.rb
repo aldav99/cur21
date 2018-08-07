@@ -4,7 +4,7 @@ class BadgesController < ApplicationController
     @badges = Badge.all
   end
 
-  def search
+  def achievements
     @badges = current_user.badges
   end
 

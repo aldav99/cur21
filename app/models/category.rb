@@ -5,8 +5,8 @@ class Category < ApplicationRecord
   
   validates :title, presence: true
 
-  def badge_by_category
-    self.list_badges.first if self.list_badges.any?
+  def self.find_by_title(title)
+    find_by(title: title)
   end
 
 end

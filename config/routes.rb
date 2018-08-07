@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   resources :badges, only: %i[index] do
     collection do
-      get 'search'
+      get 'achievements'
     end
   end
 

@@ -1,7 +1,7 @@
 <h1> <%= t('.header', title: @test_passage.test.title) %></h1>
 
 <p>
-    <b><%= @text %><font color = <%= @color %>><%= @result.to_i %></font>% </b>
+    <%= result_html(@result) %>
 </p>
 
 <%= link_to 'Back To Test', tests_path %>

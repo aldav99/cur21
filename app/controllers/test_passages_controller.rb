@@ -10,76 +10,8 @@ class TestPassagesController < ApplicationController
 
   def result
 
-    @result = (@test_passage.correct_questions.to_f/(@test_passage.test.questions.count)) * 100
-  
-    if @result < 85
-      @test_passage.pass = false
-      @test_passage.save!
-      @color = "red"
-      @text = "Тест не пройден. Вы набрали: "
-    else
-      @test_passage.pass = true
-      @test_passage.save!
-      add_badge
-      @color = "green"
-      @text = "Тест пройден. Вы набрали: "
-    end
+    @result = BadgeService.new(@test_passage).call
   end
-
-  def first_try?(test)
-    @test_passage.user.test_passages.where(test_id: test.id).one?
-  end
-  
-
-  def save_badge(badge)
-    @test_passage.user.badges << badge
-    @test_passage.user.save
-  end
-
-  def add_badge_level(level, user, badge)
-    tests_arr_id = Test.tests_by_level_id(level)
-    tests_arr_id.each do |test_id|
-      return unless TestPassage.test_pass?(test_id, user)
-    end
-    save_badge(badge)
-  end
-
-  def add_badge_category(category, user, badge)
-    tests_arr_id = category.tests.pluck(:id)
-
-    tests_arr_id.each do |test_id|
-      return unless TestPassage.test_pass?(test_id, user)
-    end
-
-    save_badge(badge)
-  end
-
-  def add_badge_first_try(test, badge)
-    save_badge(badge) if first_try?(test)
-  end
-
-
-
-
-  def add_badge
-    user = @test_passage.user
-    category = @test_passage.test.category
-    level = @test_passage.test.level
-
-    if badge = Badge.badge_by_level(level)
-      add_badge_level(level, user, badge)
-    end
-
-    if badge = Badge.badge_by_category(category)
-      add_badge_category(category, user, badge)
-    end
-
-    if badge = Badge.badge_first_try
-      add_badge_first_try(@test_passage.test, badge)
-    end
-  end
-
-  
 
   def update
     @test_passage.accept!(params[:answer_ids])

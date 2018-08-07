@@ -9,7 +9,7 @@
 </p>
 
 
-<%= render 'shared/progress', width: ((@test_passage.current_number_question - 1)*100/@test_passage.test.questions.count) %> 
+<%= render 'shared/progress', width: ((@test_passage.current_number_question - 1)*100/(@test_passage.test.questions.count)) %> 
 
 
 <%= form_with url: test_passage_path(@test_passage), local: true, method: :put, class: 'open-document' do |form| %>
