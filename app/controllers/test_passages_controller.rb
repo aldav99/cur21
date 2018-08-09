@@ -9,8 +9,11 @@ class TestPassagesController < ApplicationController
   end
 
   def result
-
-    @result = BadgeService.new(@test_passage).call
+    if @test_passage.success?
+      achievements = BadgeService.new(@test_passage).call
+      @test_passage.user.badges.push(achievements)
+      @test_passage.user.save
+    end
   end
 
   def update

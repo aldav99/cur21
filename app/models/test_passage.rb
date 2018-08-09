@@ -6,6 +6,8 @@ class TestPassage < ApplicationRecord
   before_validation :before_validation_set_first_question, on: :create
   after_validation :set_next_question, on: :update
 
+  scope :passed, -> { order(:created_at).pluck(:pass).last }
+
   def accept!(answer_ids)
     if correct_answer?(answer_ids)
       self.correct_questions += 1
@@ -19,12 +21,20 @@ class TestPassage < ApplicationRecord
   end
 
   def result
-    
+    self.correct_questions.to_f/self.test.questions.count * 100
   end
 
-  def self.test_pass?(test_id, user)
-    where(test_id: test_id, user_id: user).order(:created_at).pluck(:pass).last
-  end  
+  def success?
+    if self.result < 85
+      self.pass = false
+      self.save!
+      false
+    else
+      self.pass = true
+      self.save!
+      true
+    end
+  end
 
   private
 
