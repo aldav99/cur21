@@ -24,17 +24,15 @@ class TestPassage < ApplicationRecord
     self.correct_questions.to_f/self.test.questions.count * 100
   end
 
-  def success?
-    if self.result < 85
-      self.pass = false
-      self.save!
-      false
-    else
-      self.pass = true
-      self.save!
-      true
-    end
+  def finish!
+    self.pass = true
+    self.save!
   end
+
+  def success?
+    self.result >= 85
+  end
+
 
   private
 

@@ -5,11 +5,11 @@ class BadgeService
   end
 
   def call
-    @achievements = []
+    achievements = []
     Badge.all.each do |badge|
-      @achievements.push(badge) if send("#{badge.rule_name}_passed?", badge.rule_value) && !@test_passage.user.badges.include?(badge)
+      achievements.push(badge) if send("#{badge.rule_name}_passed?", badge.rule_value) && !@test_passage.user.badges.include?(badge)
     end
-    @achievements
+    achievements
   end
 
 

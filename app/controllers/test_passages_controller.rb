@@ -10,6 +10,7 @@ class TestPassagesController < ApplicationController
 
   def result
     if @test_passage.success?
+      @test_passage.finish!
       achievements = BadgeService.new(@test_passage).call
       @test_passage.user.badges.push(achievements)
       @test_passage.user.save
