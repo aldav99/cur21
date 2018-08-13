@@ -55,7 +55,8 @@ en:
   timer: "Timer"
   rule_name: "Rule's name"
   rule_value: "Rule's value"
-
+  timer: "Timer(min)"
+  time_test: "Time left min/sec"
 
 
   helpers:

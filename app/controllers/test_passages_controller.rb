@@ -6,6 +6,7 @@ class TestPassagesController < ApplicationController
   before_action :set_user, only: %i[show update result]
   
   def show
+    # session[:test_finish_time] = @test_passage.test.timer
   end
 
   def result
