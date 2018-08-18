@@ -4,9 +4,11 @@ class TestPassagesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_test_passage, only: %i[show update result gist]
   before_action :set_user, only: %i[show update result]
+  before_action :time_test_passage, only: %i[show update gist]
+  before_action :set_time, only: %i[show update]
   
   def show
-    # session[:test_finish_time] = @test_passage.test.timer
+    @time_left = @set_time
   end
 
   def result
@@ -20,6 +22,7 @@ class TestPassagesController < ApplicationController
 
   def update
     @test_passage.accept!(params[:answer_ids])
+    @time_left = @set_time - @test_passage.updated_at.to_i + @test_passage.created_at.to_i
     
     if @test_passage.completed?
       TestsMailer.completed_test(@test_passage).deliver_now
@@ -51,4 +54,11 @@ class TestPassagesController < ApplicationController
     @user = TestPassage.find(params[:id]).user
   end
 
+  def time_test_passage
+    redirect_to result_test_passage_path(@test_passage) if @test_passage.test_time_expired?
+  end
+
+  def set_time
+    @set_time = @test_passage.test.timer * 60
+  end
 end

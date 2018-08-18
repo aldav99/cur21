@@ -1,43 +1,9 @@
 <h1>Passing the <%= @test_passage.test.title %> Test</h1>
 
 
-<div><%=t('time_test')%> <span id="time"><%=javascript_tag "localStorage['test_finish_time']"%></span> </div>
-
-
-<script>
-  function startTimer(duration, display) {
-      var timer = duration, minutes, seconds;
-      setInterval(function () {
-          minutes = parseInt(timer / 60, 10)
-          seconds = parseInt(timer % 60, 10);
-
-          minutes = minutes < 10 ? "0" + minutes : minutes;
-          seconds = seconds < 10 ? "0" + seconds : seconds;
-
-          display.textContent = minutes + ":" + seconds;
-
-          --timer;
-
-          localStorage.setItem('test_finish_time', timer);
-
-          if (timer < 0) {
-            localStorage.removeItem("test_finish_time");
-            url = window.location + '/result'
-            window.location.replace(url);
-          }
-      }, 1000);
-  }
-  
-  window.onload = function () {
-    string1 = document.referrer;
-    string2 = "test_passages";
-    if(string1.indexOf(string2) < 0) localStorage['test_finish_time'] = <%= @test_passage.test.timer * 60 %>;
-    var timer = localStorage['test_finish_time'];
-    display = document.querySelector('#time');
-    console.log(window.location);
-    startTimer(timer, display);
-  };
-</script>
+<div><%=t('time_test')%>
+<%= content_tag :span, '', class: 'timer', data: { time: @time_left } %>
+</div>
 
 
 <p>
