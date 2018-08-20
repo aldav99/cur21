@@ -1,7 +1,7 @@
 document.addEventListener('turbolinks:load', function() {
 
   var control = document.querySelector('.timer')
-  if (control) { window.addEventListener('load', start(control)) }
+  if (control) { start(control) }
 })
 
 

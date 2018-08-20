@@ -23,4 +23,8 @@ class Test < ApplicationRecord
     Test.where(level: level).pluck(:id)
   end
 
+  def expired?
+    Time.current.to_i - TestPassage.last.created_at.to_i >= self.timer * 60
+  end
+
 end

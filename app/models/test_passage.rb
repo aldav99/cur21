@@ -33,8 +33,8 @@ class TestPassage < ApplicationRecord
     self.result >= 85
   end
 
-  def test_time_expired?
-    Time.new.to_i - self.created_at.to_i >= self.test.timer * 60
+  def time_left
+    self.test.timer * 60 - self.updated_at.to_i + self.created_at.to_i
   end
 
 

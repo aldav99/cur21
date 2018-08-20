@@ -57,7 +57,7 @@ en:
   rule_value: "Rule's value"
   timer: "Timer(min)"
   time_test: "Time left min/sec"
-
+  time_expired: "Time is up"
 
   helpers:
     select:

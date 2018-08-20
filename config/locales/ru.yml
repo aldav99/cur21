@@ -57,6 +57,7 @@ ru:
   rule_value: "Значение правила"
   timer: "Время (мин)"
   time_test: "Осталось времени мин/сек"
+  time_expired: "Время теста истекло"
 
 
   helpers:
