@@ -34,7 +34,7 @@ class TestPassage < ApplicationRecord
   end
 
   def time_left
-    self.test.timer * 60 - self.updated_at.to_i + self.created_at.to_i
+    self.test.timer * 60 - self.updated_at.to_i + self.created_at.to_i if test.timer
   end
 
 
